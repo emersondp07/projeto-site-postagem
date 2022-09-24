@@ -1,6 +1,7 @@
 // modulo de configuração do Server
 
 const express = require('express');
+const session = require('express-session');
 
 const app = express();
 
@@ -12,5 +13,15 @@ app.set('views', './app/views');
 
 // configuração arquivos estáticos
 app.use(express.static('./app/public'));
+
+//configuração do método post
+app.use(express.urlencoded( { extended:true } ));
+
+//configuração session
+app.use(session({
+    secret: 'kdf*3Q^wqUh_',
+    resave: false,
+    saveUninitialized: false
+}))
 
 module.exports = app;
