@@ -79,6 +79,6 @@ app.post('/admin/salvar-noticia', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('Servidor rodando com express')
 });
